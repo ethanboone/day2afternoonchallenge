@@ -17,13 +17,12 @@ class HousesService {
         ProxyState.houses = ProxyState.houses
     }
 
-    async addHouses(newHouse) {
+    async createHouse(newHouse) {
         // post creates data in the server, the first arument extends the baseURL the second is the data to send to the API
         let res = await api.post('houses', newHouse)
-        console.log(res.data)
         // ProxyState.values = [...ProxyState.values, new Value({ title: Math.random() })]
         res.data.id = res.data._id
-        let car = new House(res.data)
+        let house = new House(res.data)
         ProxyState.houses = [...ProxyState.houses, house]
     }
 

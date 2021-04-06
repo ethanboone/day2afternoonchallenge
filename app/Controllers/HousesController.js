@@ -25,4 +25,36 @@ export default class HousesController {
             console.log(error)
         }
     }
+
+    async createHouse() {
+        try {
+            window.event.preventDefault()
+            let form = window.event.target
+            let house = {
+                bedrooms: form.bedrooms.value,
+                bathrooms: form.bathrooms.value,
+                levels: form.levels.value,
+                imgUrl: form.imgUrl.value,
+                year: form.year.value,
+                price: form.price.value,
+                description: form.description.value
+            }
+            await housesService.createHouse(house)
+            // @ts-ignore
+            form.reset()
+
+            $('#new-house-form').modal('hide')
+
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    deleteHouse(id) {
+        try {
+            housesService.deleteHouse(id)
+        } catch (error) {
+            console.log(error)
+        }
+    }
 }

@@ -1,22 +1,23 @@
-export default class House {
-    constructor({ bedrooms, bathrooms, levels, imgUrl, year, price, description }) {
-        this.bedrooms = bedrooms
-        this.bathrooms = bathrooms
-        this.levels = levels
-        this.imgUrl = imgUrl
+export default class Car {
+    constructor({ make, model, year, price, description, imgUrl, id }) {
+        // NOTE it is no longer our job to generate Id's
+        this.id = id
+        this.make = make
+        this.model = model
         this.year = year
         this.price = price
         this.description = description
+        this.imgUrl = imgUrl
+
     }
 
     get Template() {
-
-        return /*html*/`
-        <div class="col-md-4 mb-3">
+        return `
+    <div class="col-md-4 mb-3">
       <div class="card shadow">
           <img class="card-img-top" src="${this.imgUrl}" alt="">
           <div class="card-body">
-              <h4 class="card-title">${this.bedrooms} | ${this.bathrooms} | ${this.year}</h4>
+              <h4 class="card-title">${this.make} | ${this.model} | ${this.year}</h4>
               <p class="card-text">${this.description} - $${this.price.toFixed(2)}</p>
           </div>
           <div class="px-3 pb-3 d-flex justify-content-between">
@@ -25,6 +26,6 @@ export default class House {
           </div>
       </div>
     </div>
-        `
+    `
     }
 }

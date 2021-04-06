@@ -8,6 +8,8 @@ class AppState extends EventEmitter {
   cars = []
   /** @type {House[]} */
   houses = []
+  /** @type {Job[]} */
+  jobs = []
 }
 
 export const ProxyState = new Proxy(new AppState(), {

@@ -6,8 +6,6 @@ import { api } from "./AxiosService.js";
 class CarsService {
     async getCars() {
         let res = await api.get('cars')
-        console.log(res.data)
-        console.log(ProxyState.cars)
         ProxyState.cars = res.data.map(c => new Car(c))
     }
 
